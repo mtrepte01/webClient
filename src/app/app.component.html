@@ -15,13 +15,12 @@
     
 <div id="divApplicationContainer" class="form-group mx-sm-3 mb-2">
   <br>
-  <section><form class="form-inline"><input type="text" class="form-control" placeholder="Benutzer">
-  </form></section>
+  <form class="form-inline"><input type="text" class="form-control" placeholder="Benutzer" [(ngModel)]="chatMessage.user" name="user" />
   <br>
-  <section><form><input type="text" class="form-control" placeholder="Deine Nachricht">
+  <input type="text" class="form-control" placeholder="Deine Nachricht" [(ngModel)]="chatMessage.message" name="message"/>
   <br>
   <button class="btn btn-primary mb-2" (click)="getMessage()" type="button">Senden</button>
-  </form></section>
+  </form>
 </div>
 </body>
 </html>
