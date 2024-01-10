@@ -15,12 +15,15 @@
     
 <div id="divApplicationContainer" class="form-group mx-sm-3 mb-2">
   <br>
-  <form class="form-inline"><input type="text" class="form-control" placeholder="Benutzer" [(ngModel)]="chatMessage.user" name="user" />
+  <form class="form-inline"><input type="text" class="form-control" placeholder="{{username}}" value="{{username}}" [(ngModel)]="chatMessageProp.user" name="username" />
   <br>
-  <input type="text" class="form-control" placeholder="Deine Nachricht" [(ngModel)]="chatMessage.message" name="message"/>
+  <input type="text" class="form-control" placeholder="Deine Nachricht" [(ngModel)]="chatMessageProp.message" name="message"/>
   <br>
-  <button class="btn btn-primary mb-2" (click)="getMessage()" type="button">Senden</button>
-  </form>
+  <button class="btn btn-primary mb-2" (click)="sendMessage()" type="button">Senden</button>
+  </form><br>
+  <ul *ngFor="let message of shownMessages" style="border-radius: 2px; border: 2px;">
+    <li>{{message.sender}} to: {{message.username}}: "{{message.message}}"</li>
+  </ul>
 </div>
 </body>
 </html>
