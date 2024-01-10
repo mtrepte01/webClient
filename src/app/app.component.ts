@@ -65,7 +65,7 @@ export class AppComponent {
 
     
     
-    this.service.sendMessage()
+    this.service.sendMessage(1, 2, 'test')
     .subscribe(response => {
       //this.posts = response;
       console.log(response);
