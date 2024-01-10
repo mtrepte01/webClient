@@ -19,11 +19,18 @@
   <br>
   <input type="text" class="form-control" placeholder="Deine Nachricht" [(ngModel)]="chatMessageProp.message" name="message"/>
   <br>
-  <button class="btn btn-primary mb-2" (click)="sendMessage()" type="button">Senden</button>
-  </form><br>
+  <div style="float: left;">
+    <button class="btn btn-primary mb-2" (click)="sendMessage()" type="button">Senden</button>
+  </div>
+  <div style="float: right;">
+    <button class="btn btn-primary mb-2" (click)="LadeVerlauf()">Verlauf</button>
+  </div>
+  </form>
+  <div id="comp-render" *ngIf="displayChat" style="margin-top: 5rem; border: 1px; border-style: solid;">
   <ul *ngFor="let message of shownMessages" style="border-radius: 2px; border: 2px;">
     <li>{{message.sender}} to: {{message.username}}: "{{message.message}}"</li>
   </ul>
+</div>
 </div>
 </body>
 </html>

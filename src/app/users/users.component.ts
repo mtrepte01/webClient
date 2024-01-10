@@ -20,6 +20,7 @@ export class UsersComponent{
   display = false;
   userList: any;
   selectedUser = "";
+  selectedId = "";
   users = [
     {
         id: 0,

@@ -19,6 +19,12 @@ export class PostService {
     return this.httpClient.get(this.url + 'getUsers');
   }
 
+  getMessages(pIdSender: number, pIdReceiver: number) {
+    return this.httpClient.get(
+      this.url + 'getMessages' + '?idSender=' + pIdSender + '&idReceiver=' + pIdReceiver
+    );
+  }
+
   get() {
     return this.httpClient.get(this.url);
   }
