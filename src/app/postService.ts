@@ -9,15 +9,9 @@ export class PostService {
 
   constructor(private httpClient: HttpClient) {}
 
-  sendMessage() {
-    return this.httpClient.post(
-      this.url + 'sendMessage',
-      { idSender: 1, message: 'Test' },
-      {
-        headers: {
-            'content-type': 'application/json'
-        },
-      }
+  sendMessage(pIdSender: number, pIdReceiver:number, pMessage:string) {
+    return this.httpClient.get(
+      this.url + 'sendMessage' + '?idSender=' + pIdSender + '&idReceiver=' + pIdReceiver + '&message=' + pMessage
     );
   }
 
