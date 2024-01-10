@@ -13,6 +13,11 @@ export class PostService {
     return this.httpClient.post(
       this.url + 'sendMessage',
       { idSender: 1, message: 'Test' },
+      {
+        headers: {
+            'content-type': 'application/json'
+        },
+      }
     );
   }
 
