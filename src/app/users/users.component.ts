@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ChatUsers } from './users';
 
 import { PostService } from '../postService';
-import { Observable } from 'rxjs';
+import { Observable, config } from 'rxjs';
 import { AppComponent } from '../app.component';
 
 @Component({
