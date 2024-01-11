@@ -5,13 +5,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class PostService {
-  private url = 'http://localhost:5192/chat/';
+  private url = 'http://localhost:4200/chat/';
 
   constructor(private httpClient: HttpClient) {}
 
   sendMessage(pIdSender: number, pIdReceiver:number, pMessage:string) {
-    return this.httpClient.get(
-      this.url + 'sendMessage' + '?idSender=' + pIdSender + '&idReceiver=' + pIdReceiver + '&message=' + pMessage
+    return this.httpClient.post(
+      this.url + 'sendMessage'
+        ,  { IdSender : pIdSender,  IdReceiver : pIdReceiver, Message: pMessage }
     );
   }
 
@@ -27,5 +28,19 @@ export class PostService {
 
   get() {
     return this.httpClient.get(this.url);
+  }
+
+  loginUser(pName:string) {
+    return this.httpClient.post(
+      this.url + 'loginUser'
+        ,  { Name : pName }
+    );
+  }
+
+  logoutUser(pName:string) {
+    return this.httpClient.post(
+      this.url + 'logoutUser'
+        ,  { Name : pName }
+    );  
   }
 }

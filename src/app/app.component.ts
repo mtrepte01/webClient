@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ChatMessage } from './chatmessage';
 
 import { PostService } from './postService';
+import { ApplicationService } from './applicationService';
 
 @Component({
   selector: 'app-chat',
@@ -44,7 +45,7 @@ export class AppComponent {
     },
   ];
 
-  constructor(private service: PostService) {}
+  constructor(private service: PostService, private appService:ApplicationService) {}
 
   public sendMessage() {
     this.chatMessageProp.user = this.username;
@@ -65,7 +66,7 @@ export class AppComponent {
     
     this.chatMessageProp.message = '';
     
-    this.service.sendMessage(1, 2, newMessage.message )
+    this.service.sendMessage(this.appService.idCurrentUser, this.appService.idCurrentReceiver, newMessage.message )
     .subscribe(response => {
       //this.posts = response;
       console.log(response);

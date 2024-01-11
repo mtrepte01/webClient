@@ -1,0 +1,14 @@
+<div *ngIf="!appService.isOnline">
+    <div class="row justify-content-center mt-5">
+        <div class="col-3">
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="name" id="loginName" #loginName>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <button type="button" (click)="loginUser(loginName.value)" class="btn btn-secondary w-100">Enter Chat</button>
+        </div>
+    </div>
+</div>
